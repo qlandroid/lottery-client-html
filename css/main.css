@@ -1,0 +1,39 @@
+.header-top .tab-nav-body{
+    width: 100%;
+}
+
+.f-body{
+    width: 1000px;
+    margin: 0px auto;
+}
+
+.header-top{
+    height: 30px;
+    font-size: 12px;
+    font-family: Arial,宋体;
+    background-color: #fcfcfc;
+    position: relative;
+    z-index: 209;
+    line-height: 30px;
+
+}
+
+.top-imgs{
+    height: 100px;
+}
+.lottery-header{
+    width: 70px;
+    height: 70px;
+}
+.lottery-list li{
+    float: left;
+    list-style: none;
+    width: 70px;
+    height: 94px;
+    margin: 6px 10px;
+}
+
+.lottery-list li a{
+    display: block;
+    text-align: center;
+}
