@@ -10,54 +10,59 @@ $(document).ready(function(){
             lotteryFillOpenId:fillId
         },function(data){
             if (data.code == 200){
-                /**
-                 * Object
-                 awardLBi
-                 :
-                 10
-                 createUserId
-                 :
-                 5
-                 fillLBi
-                 :
-                 11
-                 lotteryFillCreaterDate
-                 :
-                 1503814720000
-                 lotteryFillName
-                 :
-                 "满11返10积分"
-                 lotteryFillOpenId
-                 :
-                 8
-                 lotteryFillUnitPrice
-                 :
-                 1
-                 lotteryStage
-                 :
-                 "fill201708270000005"
-                 lotteryTypeId
-                 :
-                 10
-                 sendStatus
-                 :
-                 "0"
-                 */
+                console.log(data)
                 var d = data.data;
+                console.log(d);
                 $("#lotteryTitle").html(d.lotteryFillName);
                 $("#lotteryStage").html(d.lotteryStage);
                 $("#lotteryTotal").html(d.totalQty);
+                $("#lotteryCanBugQty").html(d.overBuyQty)
                 $("#priceUnit").html(d.lotteryFillUnitPrice);
-                console.log(data);
             }else{
                 layer.msg(data.message,function(){});
             }
-        })
+        });
+
+        $("#putQty").on("focus",function(){
+
+
+        });
+
+
 
         $('#btnBuyLottery').on('click',function(){
-            var buyQty = $("buyQty").val();
-            var id = GetQueryString("id");
-            $.post(base + "/fill")
-        })
+            //询问框
+            var confirm =layer.confirm('确定要支付'+$("#inputQty").val()+'积分吗？', {
+                btn: ['确定','取消'] //按钮
+            }, function(){
+                //loading层
+                layer.close(confirm);
+                var index = layer.load(1, {
+                    shade: [0.1,'#4f3800'] //0.1透明度的白色背景
+                });
+
+               createManifest();
+            }, function(){
+
+            });
+        });
+
+        function createManifest(){
+            $.post(base+"/fill/user/createManifest",{
+                fillId:GetQueryString("id"),
+                payQty:$("#inputQty").val(),
+                token:getCookie("token")
+            },function(d){
+                if(d.code==200){
+                    layer.msg(d.data.docNo,function(){});
+                }else{
+                    layer.msg(d.message,function(){});
+                }
+            })
+        }
     })
 })
+function  inputQtyChange(){
+    alert("输入了了")
+}
+
