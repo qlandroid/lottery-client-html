@@ -29,15 +29,22 @@ $(document).ready(function(){
         });
 
 
-
+        var index ;
         $('#btnBuyLottery').on('click',function(){
+            var token = getCookie("token");
+            console.log(token);
+            if (!token){
+                layer.msg("请登陆",function(){});
+                return
+            }
+
             //询问框
             var confirm =layer.confirm('确定要支付'+$("#inputQty").val()+'积分吗？', {
                 btn: ['确定','取消'] //按钮
             }, function(){
                 //loading层
                 layer.close(confirm);
-                var index = layer.load(1, {
+                index = layer.load(1, {
                     shade: [0.1,'#4f3800'] //0.1透明度的白色背景
                 });
 
@@ -53,8 +60,23 @@ $(document).ready(function(){
                 payQty:$("#inputQty").val(),
                 token:getCookie("token")
             },function(d){
+                layer.close(index);
                 if(d.code==200){
-                    layer.msg(d.data.docNo,function(){});
+                    //询问框
+                    window.open("manifest_pay.html?expendDocNo="+d.data.docNo);
+                    var confirm =layer.confirm('支付是否完成', {
+                        btn: ['支付完成','取消支付',"支付出现问题"] //按钮
+                    }, function(){
+                        //loading层
+                        layer.close(confirm);
+
+
+                    }, function() {
+                        alert("取消支付")
+                    },function () {
+                        alert("支付出现问题");
+                    });
+
                 }else{
                     layer.msg(d.message,function(){});
                 }

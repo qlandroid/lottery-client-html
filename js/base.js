@@ -10,6 +10,7 @@ function GetQueryString(name)
     if(r!=null)return  unescape(r[2]); return null;
 }
 
+
 //写cookies
 
 function setCookie(name,value)
