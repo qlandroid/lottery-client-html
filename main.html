@@ -9,40 +9,45 @@
     <script src="js/base.js" type="text/javascript"></script>
 </head>
 <body>
-    <div class="layui-header header-top">
-        <div class="header-top-nav  f-body">
-            <div class="header-nav-left fl">
-                <a href="#">登陆</a>
-            </div>
-            <div class="header-nav-right fr">
+<div class="layui-header header-top">
+    <div class="header-top-nav  f-body">
+        <div class="header-nav-left fl">
+            <a href="#">登陆</a>
+        </div>
+        <div class="header-nav-right fr">
 
-            </div>
         </div>
     </div>
-    <div class="top-imgs f-body">
-        <img src="icons/top_lottery.jpg" class="top-imgs"/>
-    </div>
+</div>
+<div class="top-imgs f-body">
+    <img src="icons/top_lottery.jpg" class="top-imgs"/>
+</div>
 
-    <div class="tab-nav-body">
-        <div class="tab-nav  f-body">
-            <ul>
-                <li class="fl">积分彩票</li>
-            </ul>
-        </div>
-    </div>
-    <div class="f-body">
-        <ul class="lottery-list">
-            <li class="fl">
-               <a target="_blank" href="lottery_buy_fill.html"><img src="icons/lottery_header.jpg" class="lottery-header"/>
-               <span>满11积分抽10</span></a>
-            </li>
-
+<div class="tab-nav-body">
+    <div class="tab-nav  f-body">
+        <ul>
+            <li class="fl">积分彩票</li>
         </ul>
-
     </div>
+</div>
+<div class="f-body">
+    <ul class="lottery-list">
+    </ul>
 
-    <script src="layui/layui.js"></script>
-    <script src="js/jquery.js"></script>
+</div>
+<script type="text/html" id="fillItem">
+    <li class="fl">
+        <a target="_blank" href="lottery_buy_fill.html?id={{d.lotteryFillOpenId}}">
+            <img src="icons/lottery_header.jpg" class="lottery-header"/>
+            {{# var qty = d.fillLBi - d.buyQty}}
+            <span>剩余{{qty}}</span><br>
+            <span>中奖积分{{ d.awardLBi}}</span><br>
+            <span>{{d.lotteryName}}</span></a>
+    </li>
+</script>
+<script src="layui/layui.js"></script>
+<script src="js/jquery.js"></script>
 <script src="js/main.js"></script>
+
 </body>
 </html>

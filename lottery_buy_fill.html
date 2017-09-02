@@ -18,16 +18,17 @@
         <h5>总数量:<span id="lotteryTotal">11</span>积分</h5>
     </div>
     <div>
-        <h5>剩余:<span id="lotteryCanBugQty">6</span>积分</h5>
+        <h5>已经购买:<span id="lotteryCanBugQty">6</span>积分</h5>
     </div>
     <div>
-       购买：<input type="text" class="layui-input-inline" id="buyQty">积分
+        购买：<input type="text" class="layui-input-inline" id="inputQty" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"> * <span id="priceUnit"></span> = <span id="buyTotalQty"></span>积分
     </div>
 
     <button class="layui-btn" id="btnBuyLottery">购买</button>
 </div>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="layui/layui.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript" src="js/lottery_buy_fill.js"></script>
 
 </body>
