@@ -20,9 +20,7 @@ $(document).ready(function () {
             pageSize:20,
             lotteryTypeId:10
         }, function (d) {
-            console.log(d);
             if (d.code == 200) {
-                console.log(d);
                 var list = d.list;
                 var innerHtml = "";
                 for (var i = 0; i < list.length; i++) {
@@ -33,5 +31,35 @@ $(document).ready(function () {
                 $(".lottery-list").html(innerHtml);
             }
         })
+        var token = getCookie("token");
+        if(token){
+            $.post(base+"/user/manager/details",{
+                token:token
+            },function(d){
+                if(d.code == 200){
+                    var name = d.data.name;
+                    var headerLoginHtml = "欢迎用户";
+                    if(!name){
+                        name = "……"
+                    }else{
+
+                    }
+
+                    headerLoginHtml = headerLoginHtml + name;
+
+                    $(".header-nav-left").html(headerLoginHtml);
+
+
+                    $(".header-nav-right .out-login").html("<a href='#' onclick='outLogin()'>退出</a>");
+
+                }
+            })
+        }
+
     })
 });
+
+function outLogin(){
+    delCookie("token");
+    window.location.reload();
+}

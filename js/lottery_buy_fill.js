@@ -69,7 +69,7 @@ $(document).ready(function(){
                     }, function(){
                         //loading层
                         layer.close(confirm);
-
+                        window.location.reload();
 
                     }, function() {
                         alert("取消支付")
