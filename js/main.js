@@ -24,6 +24,7 @@ $(document).ready(function () {
                 var list = d.list;
                 var innerHtml = "";
                 for (var i = 0; i < list.length; i++) {
+                    console.log(list[i]);
                     laytpl(fillItem.innerHTML).render(list[i], function (html) {
                         innerHtml = innerHtml + html;
                     })
