@@ -33,10 +33,17 @@
     </div>
 </div>
 <div class="f-body">
-    <ul class="lottery-list">
+    <ul class="type-list"></ul>
+
+    <ul class="lottery-list" typeId="12" id="lotteryList">
     </ul>
 
 </div>
+<script type="text/html" id="typeItem">
+    <li class="fl">
+       <button class="btn-type-item layui-btn" data-id="{{d.lotteryTypeId}}" data-type="{{d.lotteryType}}">{{d.lotteryName}}</button>
+    </li>
+</script>
 <script type="text/html" id="fillItem">
     <li class="fl">
         <a target="_blank" href="lottery_buy_fill.html?id={{d.lotteryFillOpenId}}">
