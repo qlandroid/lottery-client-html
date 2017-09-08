@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--suppress InjectedReferences -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="js/base.js"></script>
+    <link rel="stylesheet" href="css/reg.css">
+</head>
+<body>
+<div class="reg-body">
+    <div class="layui-form" action="">
+        <div id="accountHint" class="error-hint"></div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">账号</label>
+            <div class="layui-input-block">
+                <input type="text" id="account" name="account" lay-verify="account|required" autocomplete="off" placeholder="账号"
+                       class="layui-input">
+            </div>
+        </div>
+        <div id="pw1Hint" class="error-hint"></div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-block">
+                <input type="text" id="pw1" name="pw1" lay-verify="pw1|required" placeholder="请输入密码" autocomplete="off"
+                       class="layui-input input-pw" data-type="pw1">
+            </div>
+        </div>
+        <div id="pw2Hint"  class="error-hint"></div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">验证密码</label>
+            <div class="layui-input-block">
+                <input type="text" id="pw2" name="pw2" lay-verify="pw2|required" placeholder="请输入密码" autocomplete="off"
+                       class="layui-input input-pw" data-type="pw2">
+            </div>
+        </div>
+
+        <div id="regHint" class="error-hint"></div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" id="btnSubmit">立即提交</button>
+                <button id="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="layui/layui.js"></script>
+<script src="js/reg.js"></script>
+
+</html>
