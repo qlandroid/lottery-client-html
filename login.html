@@ -3,15 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link type="text/css" href="layui/css/layui.css">
+    <link rel="stylesheet" href="layui/css/layui.css">
     <script src="js/base.js"></script>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/replace.css">
 </head>
 <body>
-    <div>
-        <input class="layui-input" id="account" type="text" placeholder="账号">
-        <input class="layui-input" id="pw" type="password" placeholder="密码">
-        <button class="layui-btn" id="btnLogin" >登录</button>
+<div class="content-body header-nav">
+    <a href="main.html">首页</a>
+</div>
+<div class="top-nav-body">
+    <div class="nav-content content-body">
+        <div class="nav-left-logo fl">
+            <span class="nav-left-title">注册会员中心</span>
+        </div>
+
+        <div class="fr">
+            <img src="icons/login_binner.jpg" style="height: 100px">
+        </div>
     </div>
+
+</div>
+
+<div class="content-body">
+    <div class="right-img-body">
+
+    </div>
+    <div class="login-body login-transform">
+        <div class="login">
+            <div class="login-header">
+                <span>账号登录</span>
+            </div>
+            <div class="input-body">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">账号</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="account" equired lay-verify="required" placeholder="账号"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" required lay-verify="required" placeholder="密码" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div style="margin-top: 40px"></div>
+                <div class="reg-error-hint" id="regErrorHint"></div>
+                <div class="login-btn-group">
+                    <button id="btnLogin" class="layui-btn layui-bg-red">登录</button>
+                    <button id="btnPw" class="layui-btn layui-bg-cyan">忘记密码</button>
+                </div>
+            </div>
+        </div>
+        <div class="reg layui-hide">
+            <div class="login-header">
+                <span>注册账号</span>
+            </div>
+            <div class="input-body">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">账号</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="regAccount" equired lay-verify="required" placeholder="账号"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-input-block">
+                        <input type="text" id="regPw" equired lay-verify="required" placeholder="密码"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="layui-btn" id="toShowLogin">登录</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="layui-footer">
+
+</div>
 </body>
 <script src="js/jquery.js"></script>
 <script src="layui/layui.js"></script>

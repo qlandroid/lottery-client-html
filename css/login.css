@@ -1,0 +1,77 @@
+.top-nav-body {
+    height: 100px;
+    background-color: #f63;
+}
+.header-nav{
+    height: 38px;;
+    line-height: 38px;
+}
+
+.content-body {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav-left-logo{
+    padding-top: 25px;
+    margin-left: 90px;
+    color: white;
+    font-size: 30px;
+}
+.right-img-body {
+    width: 600px;
+    height: 500px;
+    float: left;
+    left: 0px;
+    background-image: url('../icons/icon_login_bg.jpg');
+    background-repeat: no-repeat;
+    background-position:center;
+}
+
+.login-body {
+    margin-top: 60px;
+    padding: 10px;
+    float: right;
+    width: 280px;
+    height: 380px;
+    border: 2px solid #8D8D8D;
+}
+
+.login-header {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.login-header span {
+    font-size: 18px;
+    font-family: 微软雅黑;
+    font-weight: bold;
+}
+.layui-form-label{
+    padding-left: 0px;
+    width: 50px;;
+}
+.layui-input-block{
+ margin-left: 65px;
+}
+.input-body {
+    margin-top:60px;
+
+}
+.login-btn-group{
+    margin-top: 6px;
+    margin-left: 60px;
+
+}
+
+.reg-error-hint{
+    color: red;
+    margin-left: 60px;
+}
+
+.login-transform{
+
+}
+.layui-footer{
+
+}
