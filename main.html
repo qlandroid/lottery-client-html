@@ -5,7 +5,6 @@
     <title>彩票</title>
     <link rel="stylesheet" href="layui/css/layui.css">
     <link rel="stylesheet" href="css/main.css">
-
     <script src="js/base.js" type="text/javascript"></script>
 </head>
 <body>
@@ -23,35 +22,76 @@
 </div>
 <div class="top-imgs f-body">
     <img src="icons/top_lottery.jpg" class="top-imgs"/>
-</div>
+    <div class="fr right-nav-rows">
+        <div id="demo" class="fl" style="width: 300px;height:100px;overflow:hidden;">
+            <div id="indemo" style="height:200%;">
+                <div id="demo1">
+                    第一行字<br/>
+                    第二行字
+                </div>
+                <div id="demo2"></div>
+            </div>
+        </div>
 
-<div class="tab-nav-body">
-    <div class="tab-nav  f-body">
-        <ul>
-            <li class="fl">积分彩票</li>
-        </ul>
     </div>
 </div>
-<div class="f-body">
-    <ul class="type-list"></ul>
 
-    <ul class="lottery-list" typeId="12" id="lotteryList">
-    </ul>
+<div class="f-body nav-type">
+    <div>
+        <ul class="type-list"></ul>
+    </div>
+</div>
+
+<div class="f-body content-list">
+    <div class="fl">
+        <ul class="lottery-list" typeId="12" id="lotteryList">
+        </ul>
+    </div>
 
 </div>
 <script type="text/html" id="typeItem">
     <li class="fl">
-       <button class="btn-type-item layui-btn" data-id="{{d.lotteryTypeId}}" data-type="{{d.lotteryType}}">{{d.lotteryName}}</button>
+        <button class="btn-type-item layui-btn" data-id="{{d.lotteryTypeId}}" data-type="{{d.lotteryType}}">
+            {{d.lotteryName}}
+        </button>
     </li>
+</script>
+<script type="text/javascript">
+    speed = 100;        //数字越大滚得越慢
+    var tab = document.getElementById("demo");
+    var tab1 = document.getElementById("demo1");
+    var tab2 = document.getElementById("demo2");
+    tab2.innerHTML = tab1.innerHTML;
+    tab.scrollTop = tab1.offsetHeight;
+    function Marquee() {
+        if (tab.scrollTop >= tab1.offsetHeight) {
+            tab.scrollTop -= tab2.offsetHeight;
+        } else {
+            tab.scrollTop += 1;
+        }
+    }
+    var MyMar = setInterval(Marquee, speed);
 </script>
 <script type="text/html" id="fillItem">
     <li class="fl">
         <a target="_blank" href="lottery_buy_fill.html?id={{d.lotteryFillOpenId}}">
-            <img src="icons/lottery_header.jpg" class="lottery-header"/>
-            {{# var qty = d.fillLBi - d.buyQty}}
-            <span>剩余{{qty}}</span><br>
-            <span>中奖积分{{ d.awardLBi}}</span><br>
-            <span>{{d.lotteryName}}</span></a>
+            <div class="fl">
+                <img src="icons/fill_lottery.png" class="lottery-header"/>
+            </div>
+            <div class="fl item-fill">
+                {{# var qty = d.fillLBi - d.buyQty}}
+                <div>
+                    期号:<span>{{d.lotteryStage}}</span>
+                </div>
+                <div>
+                    <span>中奖积分{{ d.awardLBi}}</span>
+                </div>
+                <div>
+                    <span>{{d.lotteryName}}</span>
+                </div>
+
+            </div>
+        </a>
     </li>
 </script>
 <script src="layui/layui.js"></script>

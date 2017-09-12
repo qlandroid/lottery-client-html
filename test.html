@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div>
+    <div>
+        <ul>
+            <li class="item" type="0"><a class="content item-normal" href="#">1测试</a></li>
+            <li class="item" type="1"><a class="content item-normal" href="#">1测试</a></li>
+            <li class="item" type="2"><a class="content item-normal" href="#">1测试</a></li>
+            <li class="item" type="3"><a class="content item-normal" href="#">1测试</a></li>
+            <li class="item" type="4"><a class="content item-normal" href="#">1测试</a></li>
+            <li class="item" type="5"><a class="content item-normal" href="#">1测试</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+<style>
+    ul li {
+        list-style: none;
+        background-color: #9b0000;
+        height: 38px;
+        float: left;
+    }
+
+    ul li a:hover {
+        cursor: hand;
+        background-color: rebeccapurple;
+    }
+
+    ul li a {
+        padding: 0px 26px;
+        float: left;
+        color: #fff9ec;
+        text-decoration: none;
+        border-left: 1px solid #a52600;
+        border-right: 1px solid #a52600;
+    }
+
+    .item-select{
+        background-color: #6c1500;
+    }
+
+    .item-normal {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .item-move {
+        line-height: 48px;
+        color: #fff9ec;
+        height: 48px;
+    }
+</style>
+<script src="js/jquery.js"></script>
+<script src="layui/layui.js"></script>
+<script>
+    var $selectItem;
+    $(".content").on("mousemove", function () {
+        var type = $(this).attr("type");
+        $(this).addClass("item-move");
+        $(this).removeClass("item-normal");
+    })
+    $(".content").on("mouseout", function () {
+        var type = $(this).attr("type");
+        $(this).addClass("item-normal");
+        $(this).removeClass("item-move");
+    })
+    $(".content").on("click",function () {
+        if($selectItem){
+            $selectItem.removeClass("item-select");
+        }
+        $selectItem = $(this);
+        $(this).addClass("item-select");
+    })
+
+</script>
+</html>
